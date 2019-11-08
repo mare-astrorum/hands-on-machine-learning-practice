@@ -99,3 +99,46 @@ class Never5Classifier(BaseEstimator):
 
 never_5_clf = Never5Classifier()
 cross_val_score(never_5_clf, X_train, y_train_5, cv=3, scoring="accuracy")
+
+#%% Confusion Matrix
+
+#%% Predict classes on the training set with cross-validation
+
+from sklearn.model_selection import cross_val_predict
+
+y_train_pred = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3)
+
+#%% Create confusion matrix
+
+from sklearn.metrics import confusion_matrix
+confusion_matrix(y_train_5, y_train_pred)
+
+#%% An example of a perfect classifier
+
+y_train_perfect_predictions = y_train_5
+confusion_matrix(y_train_5, y_train_perfect_predictions)
+
+#%% Precision and Recall (Selectivity and Sensitivity)
+
+from sklearn.metrics import precision_score, recall_score
+
+precision_score(y_train_5, y_train_pred)
+recall_score(y_train_5, y_train_pred)
+
+#%% Compute F1 score (harmonic mean)
+
+from sklearn.metrics import f1_score
+
+f1_score(y_train_5, y_train_pred)
+
+#%% Applying decision function
+
+y_scores = sgd_clf.decision_function([some_digit])
+y_scores
+
+threshold = 0
+y_some_digit_pred = (y_scores > threshold)
+
+threshold = 8000
+y_some_digit_pred = (y_scores > threshold)
+y_some_digit_pred
