@@ -1,0 +1,87 @@
+1. Which Linear Regression training algorithm can you use if you have a
+training set with millions of features?
+
+Various Gradient Descents
+
+
+2. Suppose the features in your training set have very different scales.
+Which algorithms might suffer from this, and how? What can you do
+about it?
+
+
+Regularized models such as Rigde or Lasso Regressions also gradient descent. Data could be scaled to help it.
+
+3. Can Gradient Descent get stuck in a local minimum when training a
+Logistic Regression model?
+
+No
+
+4. Do all Gradient Descent algorithms lead to the same model, provided
+you let them run long enough?
+
+Unless they run into a local minimum, they reach values that are very similar
+
+
+
+5. Suppose you use Batch Gradient Descent and you plot the validation
+error at every epoch. If you notice that the validation error consistently
+goes up, what is likely going on? How can you fix this?
+
+If it's both for validation and training data then the learning rate is too large, should reduce it. If just the validation data, then overfitting & should stop training.
+
+
+6. Is it a good idea to stop Mini-batch Gradient Descent immediately when
+the validation error goes up?
+
+No, should continue on for a while to make sure the actual minimum is reached.
+
+
+7. Which Gradient Descent algorithm (among those we discussed) will
+reach the vicinity of the optimal solution the fastest? Which will
+actually converge? How can you make the others converge as well?
+
+Stochastic is the fastest, batch will converge. The others converge if the learning rate is gradually decreased.
+
+
+8. Suppose you are using Polynomial Regression. You plot the learning
+curves and you notice that there is a large gap between the training error
+and the validation error. What is happening? What are three ways to
+solve this?
+
+If the model is overfitting then reducing the model polynomial degree, regularizing the values with Ridge or Lasso and increasing the training dataset.
+
+
+
+9. Suppose you are using Ridge Regression and you notice that the
+training error and the validation error are almost equal and fairly high.
+Would you say that the model suffers from high bias or high variance?
+Should you increase the regularization hyperparameter α or reduce it?
+
+High bias, reduce regularization.
+
+
+
+10. Why would you want to use:
+a. Ridge Regression instead of plain Linear Regression (i.e.,
+without any regularization)?
+
+When too many predictors, also regularized model performs better than just plain Linear Regression
+
+b. Lasso instead of Ridge Regression?
+
+When want to eliminate some less important variables completely
+
+c. Elastic Net instead of Lasso?
+
+When the number of features is greater than the number of training instances or when some instances are highly correlated because Lasso can then act erratically
+
+
+11. Suppose you want to classify pictures as outdoor/indoor and
+daytime/nighttime. Should you implement two Logistic Regression
+classifiers or one Softmax Regression classifier?
+
+Two Logistic Regressions because these are two separate pairs of conditions
+
+
+12. Implement Batch Gradient Descent with early stopping for Softmax
+Regression (without using Scikit-Learn).

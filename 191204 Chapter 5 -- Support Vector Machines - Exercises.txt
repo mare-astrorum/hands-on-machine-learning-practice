@@ -1,0 +1,52 @@
+1. What is the fundamental idea behind Support Vector Machines?
+
+Tries to separate different groups by using only a limited number of values
+
+
+2. What is a support vector?
+
+Vector that is drawn through the observations that separate the different groups
+
+
+3. Why is it important to scale the inputs when using SVMs?
+
+Because the algorithm is trying to find the widest possible margin, so if one variable has, say, a larger scale than another, it will have more weight.
+
+
+4. Can an SVM classifier output a confidence score when it classifies an
+instance? What about a probability?
+
+An SVM classifier can output the distance between the test instance and
+the decision boundary, and this can be used as a confidence score. No probability.
+
+
+5. Should you use the primal or the dual form of the SVM problem to train
+a model on a training set with millions of instances and hundreds of
+features?
+
+Primal
+
+6. Say you’ve trained an SVM classifier with an RBF kernel, but it seems
+to underfit the training set. Should you increase or decrease γ (gamma)?
+What about C?
+
+Increase both
+
+
+7. How should you set the QP parameters (H, f, A, and b) to solve the soft
+margin linear SVM classifier problem using an off-the-shelf QP solver?
+
+
+
+8. Train a LinearSVC on a linearly separable dataset. Then train an SVC
+and a SGDClassifier on the same dataset. See if you can get them to
+produce roughly the same model.
+
+
+9. Train an SVM classifier on the MNIST dataset. Since SVM classifiers
+are binary classifiers, you will need to use one-versus-the-rest to
+classify all 10 digits. You may want to tune the hyperparameters using
+small validation sets to speed up the process. What accuracy can you
+reach?
+
+10. Train an SVM regressor on the California housing dataset.
